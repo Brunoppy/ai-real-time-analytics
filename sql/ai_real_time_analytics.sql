@@ -6,5 +6,5 @@ CREATE TABLE event_logs (
     event_data JSONB
 );
 
--- Index para consultas rápidas por tempo
+-- Index for quick queries by time
 CREATE INDEX idx_event_timestamp ON event_logs (event_timestamp DESC);
