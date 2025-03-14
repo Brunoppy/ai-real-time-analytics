@@ -2,7 +2,7 @@ import json
 import psycopg2
 from datetime import datetime
 
-# Conexão com o banco
+# Database connection
 conn = psycopg2.connect("dbname=analytics user=admin password=secret host=localhost")
 cur = conn.cursor()
 
@@ -11,7 +11,7 @@ def insert_event(event_type, event_data):
     cur.execute(query, (event_type, json.dumps(event_data)))
     conn.commit()
 
-# Exemplo de evento em tempo real
+# Real-time event example
 insert_event("sensor_reading", {"temperature": 22.5, "humidity": 60, "timestamp": str(datetime.now())})
 
 cur.close()
